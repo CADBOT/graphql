@@ -18,8 +18,8 @@ let db = {
 let UserType = new GraphQLObjectType({
   name: 'User',
   fields: () => ({
-    id: { type: GraphQLString }
-    firstName: { type: GraphQLString }
+    id: { type: GraphQLString },
+    firstName: { type: GraphQLString },
     age: { type: GraphQLInt }
   })
 })
@@ -30,8 +30,12 @@ let RootQuery = new GraphQLObjectType({
     users: {
       type: new GraphQLList(UserType),
       resolve(parentValue, args) {
-        //TODO return the approp value
+        //TODO
       }
     }
   })
+})
+
+module.exports = new GraphQLSchema({
+  query: RootQuery
 })
